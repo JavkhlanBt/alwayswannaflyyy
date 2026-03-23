@@ -8,19 +8,107 @@
   \usepackage[english]{babel}%
 }
 
+\usepackage[expansion=false]{microtype}
 \usefonttheme[onlymath]{serif}
-\usetheme{Warsaw}
+\usetheme{Madrid}
+\useinnertheme{rounded}
 \setbeamertemplate{navigation symbols}{}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{etoolbox}
 \usepackage{graphicx}
+\usepackage{ragged2e}
 
 \title[ARMA203]{ARMA203}
 \subtitle{Бүлэг 4: Туршилтын загварчлал}
 \author[А.~Мэнд-Оргил, М.~Номин]{А.~Мэнд-Оргил, М.~Номин}
 \institute[МУИС]{Статистик, Хэрэглээний математикийн тэнхим\\Мэдээллийн технологи, электроникийн сургууль\\Монгол Улсын Их Сургууль}
 \date{}
+
+\definecolor{Primary}{RGB}{16, 52, 90}
+\definecolor{Secondary}{RGB}{36, 116, 145}
+\definecolor{Accent}{RGB}{0, 148, 135}
+\definecolor{SoftBg}{RGB}{245, 248, 252}
+\definecolor{SoftAccent}{RGB}{232, 243, 247}
+\definecolor{BodyText}{RGB}{45, 52, 62}
+
+\setbeamercolor{normal text}{fg=BodyText,bg=white}
+\setbeamercolor{structure}{fg=Primary}
+\setbeamercolor{title}{fg=Primary}
+\setbeamercolor{subtitle}{fg=Secondary}
+\setbeamercolor{frametitle}{fg=Primary,bg=SoftBg}
+\setbeamercolor{framesubtitle}{fg=Secondary}
+\setbeamercolor{section in toc}{fg=Primary}
+\setbeamercolor{item projected}{bg=Primary,fg=white}
+\setbeamercolor{block title}{fg=white,bg=Primary}
+\setbeamercolor{block body}{fg=BodyText,bg=SoftBg}
+\setbeamercolor{block title example}{fg=white,bg=Accent}
+\setbeamercolor{block body example}{fg=BodyText,bg=SoftAccent}
+\setbeamercolor{block title alerted}{fg=white,bg=BrickRed}
+\setbeamercolor{block body alerted}{fg=BodyText,bg=white}
+\setbeamercolor{footline left}{fg=white,bg=Primary}
+\setbeamercolor{footline right}{fg=white,bg=Secondary}
+\setbeamercolor{title page box}{fg=BodyText,bg=SoftBg}
+\setbeamercolor{section page box}{fg=white,bg=Primary}
+
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{section title}{series=\bfseries,size=\Large}
+
+\setbeamertemplate{headline}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{itemize item}{\color{Accent}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{Secondary}$\circ$}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.78\paperwidth,ht=3.1ex,dp=1.2ex,leftskip=.5cm,rightskip=.3cm]{footline left}%
+      \usebeamerfont{author in head/foot}\insertshorttitle\hfill\insertsectionhead
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.22\paperwidth,ht=3.1ex,dp=1.2ex,center]{footline right}%
+      \insertframenumber{} / \inserttotalframenumber
+    \end{beamercolorbox}%
+  }%
+}
+
+\setbeamertemplate{title page}{%
+  \begin{centering}
+    \vspace*{0.9cm}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+    \vspace{0.15cm}
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+    \vspace{0.45cm}
+    {\color{Accent}\rule{0.58\linewidth}{1.2pt}\par}
+    \vspace{0.7cm}
+    \begin{beamercolorbox}[wd=.84\paperwidth,sep=.8cm,rounded=true,center]{title page box}
+      {\usebeamerfont{author}\insertauthor\par}
+      \vspace{0.35cm}
+      {\usebeamerfont{institute}\insertinstitute\par}
+    \end{beamercolorbox}
+    \vfill
+    {\small \insertdate\par}
+  \end{centering}
+}
+
+\AtBeginSection[]{
+  \begin{frame}[plain]
+    \vfill
+    \begin{beamercolorbox}[wd=.88\paperwidth,sep=14pt,center,rounded=true]{section page box}
+      {\usebeamerfont{section title}\insertsectionhead\par}
+    \end{beamercolorbox}
+    \vspace{0.25cm}
+    {\centering\color{Secondary}\rule{0.36\linewidth}{1pt}\par}
+    \vfill
+  \end{frame}
+}
+
+\AtBeginEnvironment{frame}{\justifying}
+\setlength{\emergencystretch}{2em}
 
 \newcommand{\safeimage}[2][]{%
   \IfFileExists{#2}{%
@@ -40,14 +128,14 @@
 \begin{document}
 
 %---------------------------------
-\begin{frame}
+\begin{frame}[plain]
 \titlepage
 \end{frame}
 
 %---------------------------------
 \section{Хичээлийн агуулга}
 
-\begin{frame}{9-р хичээлийн агуулга}
+\begin{frame}{Хичээлийн агуулга}
 \begin{enumerate}
 \item Оршил
 \item Chesapeake Bay булан дахь агнуур ба нэг гишүүнт загварууд
