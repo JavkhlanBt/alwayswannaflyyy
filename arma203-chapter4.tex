@@ -10,14 +10,11 @@
 
 \usepackage[expansion=false]{microtype}
 \usefonttheme[onlymath]{serif}
-\usetheme{Madrid}
-\useinnertheme{rounded}
-\setbeamertemplate{navigation symbols}{}
+\usetheme{Warsaw}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{booktabs}
-\usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{ragged2e}
 
@@ -27,84 +24,71 @@
 \institute[МУИС]{Статистик, Хэрэглээний математикийн тэнхим\\Мэдээллийн технологи, электроникийн сургууль\\Монгол Улсын Их Сургууль}
 \date{}
 
-\definecolor{Primary}{RGB}{16, 52, 90}
-\definecolor{Secondary}{RGB}{36, 116, 145}
-\definecolor{Accent}{RGB}{0, 148, 135}
-\definecolor{SoftBg}{RGB}{245, 248, 252}
-\definecolor{SoftAccent}{RGB}{232, 243, 247}
-\definecolor{BodyText}{RGB}{45, 52, 62}
+\definecolor{RefBlue}{RGB}{56, 56, 176}
+\definecolor{RefBlueDark}{RGB}{33, 33, 112}
+\definecolor{RefBlack}{RGB}{9, 9, 12}
+\definecolor{RefText}{RGB}{18, 18, 18}
 
-\setbeamercolor{normal text}{fg=BodyText,bg=white}
-\setbeamercolor{structure}{fg=Primary}
-\setbeamercolor{title}{fg=Primary}
-\setbeamercolor{subtitle}{fg=Secondary}
-\setbeamercolor{frametitle}{fg=Primary,bg=SoftBg}
-\setbeamercolor{framesubtitle}{fg=Secondary}
-\setbeamercolor{section in toc}{fg=Primary}
-\setbeamercolor{item projected}{bg=Primary,fg=white}
-\setbeamercolor{block title}{fg=white,bg=Primary}
-\setbeamercolor{block body}{fg=BodyText,bg=SoftBg}
-\setbeamercolor{block title example}{fg=white,bg=Accent}
-\setbeamercolor{block body example}{fg=BodyText,bg=SoftAccent}
+\setbeamercolor{normal text}{fg=RefText,bg=white}
+\setbeamercolor{structure}{fg=RefBlue}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=white}
+\setbeamercolor{titlelike}{fg=white,bg=RefBlue}
+\setbeamercolor{frametitle left}{fg=white,bg=RefBlue}
+\setbeamercolor{frametitle right}{fg=white,bg=RefBlack}
+\setbeamercolor{section in head/foot}{fg=white,bg=RefBlack}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=RefBlack}
+\setbeamercolor{palette primary}{fg=white,bg=RefBlack}
+\setbeamercolor{palette secondary}{fg=white,bg=RefBlue}
+\setbeamercolor{palette tertiary}{fg=white,bg=RefBlack}
+\setbeamercolor{palette quaternary}{fg=white,bg=RefBlue}
+\setbeamercolor{author in head/foot}{fg=white,bg=RefBlack}
+\setbeamercolor{title in head/foot}{fg=white,bg=RefBlue}
+\setbeamercolor{date in head/foot}{fg=white,bg=RefBlueDark}
+\setbeamercolor{navigation symbols}{fg=RefBlue!55}
+\setbeamercolor{title page banner}{fg=white,bg=RefBlue}
+\setbeamercolor{block title}{fg=white,bg=RefBlueDark}
+\setbeamercolor{block body}{fg=black,bg=black!4}
+\setbeamercolor{block title example}{fg=white,bg=RefBlue}
+\setbeamercolor{block body example}{fg=black,bg=black!3}
 \setbeamercolor{block title alerted}{fg=white,bg=BrickRed}
-\setbeamercolor{block body alerted}{fg=BodyText,bg=white}
-\setbeamercolor{footline left}{fg=white,bg=Primary}
-\setbeamercolor{footline right}{fg=white,bg=Secondary}
-\setbeamercolor{title page box}{fg=BodyText,bg=SoftBg}
-\setbeamercolor{section page box}{fg=white,bg=Primary}
+\setbeamercolor{block body alerted}{fg=black,bg=black!2}
 
-\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{title}{series=\mdseries,size=\LARGE}
 \setbeamerfont{subtitle}{size=\large}
-\setbeamerfont{frametitle}{series=\bfseries,size=\large}
-\setbeamerfont{author}{size=\normalsize}
-\setbeamerfont{section title}{series=\bfseries,size=\Large}
+\setbeamerfont{frametitle}{series=\mdseries,size=\Large}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{institute}{size=\normalsize}
 
-\setbeamertemplate{headline}{}
-\setbeamertemplate{blocks}[rounded][shadow=false]
-\setbeamertemplate{itemize item}{\color{Accent}$\blacktriangleright$}
-\setbeamertemplate{itemize subitem}{\color{Secondary}$\circ$}
+\setbeamertemplate{navigation symbols}[default]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{items}[ball]
+\setbeamersize{text margin left=0.85cm,text margin right=0.85cm}
 
-\setbeamertemplate{footline}{%
-  \leavevmode%
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
   \hbox{%
-    \begin{beamercolorbox}[wd=.78\paperwidth,ht=3.1ex,dp=1.2ex,leftskip=.5cm,rightskip=.3cm]{footline left}%
-      \usebeamerfont{author in head/foot}\insertshorttitle\hfill\insertsectionhead
+    \begin{beamercolorbox}[wd=.50\paperwidth,ht=3.3ex,dp=1.2ex,leftskip=.35cm]{frametitle left}%
+      \usebeamerfont{frametitle}\insertframetitle
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.22\paperwidth,ht=3.1ex,dp=1.2ex,center]{footline right}%
-      \insertframenumber{} / \inserttotalframenumber
+    \begin{beamercolorbox}[wd=.50\paperwidth,ht=3.3ex,dp=1.2ex]{frametitle right}%
     \end{beamercolorbox}%
   }%
 }
 
 \setbeamertemplate{title page}{%
   \begin{centering}
-    \vspace*{0.9cm}
-    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
-    \vspace{0.15cm}
-    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
-    \vspace{0.45cm}
-    {\color{Accent}\rule{0.58\linewidth}{1.2pt}\par}
-    \vspace{0.7cm}
-    \begin{beamercolorbox}[wd=.84\paperwidth,sep=.8cm,rounded=true,center]{title page box}
-      {\usebeamerfont{author}\insertauthor\par}
-      \vspace{0.35cm}
-      {\usebeamerfont{institute}\insertinstitute\par}
+    \vspace*{1.2cm}
+    \begin{beamercolorbox}[wd=.86\paperwidth,sep=.62cm,center,rounded=true,shadow=true]{title page banner}
+      {\usebeamerfont{title}\inserttitle\par}
+      \vspace{0.2cm}
+      {\usebeamerfont{subtitle}\insertsubtitle\par}
     \end{beamercolorbox}
-    \vfill
-    {\small \insertdate\par}
+    \vspace{0.9cm}
+    {\usebeamerfont{author}\color{black}\insertauthor\par}
+    \vspace{0.55cm}
+    {\usebeamerfont{institute}\color{black}\insertinstitute\par}
   \end{centering}
-}
-
-\AtBeginSection[]{
-  \begin{frame}[plain]
-    \vfill
-    \begin{beamercolorbox}[wd=.88\paperwidth,sep=14pt,center,rounded=true]{section page box}
-      {\usebeamerfont{section title}\insertsectionhead\par}
-    \end{beamercolorbox}
-    \vspace{0.25cm}
-    {\centering\color{Secondary}\rule{0.36\linewidth}{1pt}\par}
-    \vfill
-  \end{frame}
 }
 
 \AtBeginEnvironment{frame}{\justifying}
@@ -128,7 +112,7 @@
 \begin{document}
 
 %---------------------------------
-\begin{frame}[plain]
+\begin{frame}
 \titlepage
 \end{frame}
 
@@ -580,12 +564,8 @@ y = 158.344\sqrt{x}
 \item $x$ --- суурь жил
 \end{itemize}
 
-\vspace{0.3cm}
-\centering
-\safeimage[width=0.6\textwidth]{table44.png}
-
-\smallskip
-\small Хүснэгт~4.4: Blue crab өгөгдөл
+\medskip
+Хүснэгт~4.4-т blue crab агнуурын өгөгдлийг үзүүлэв.
 \end{frame}
 
 %---------------------------------
@@ -1018,7 +998,12 @@ $}
 \[
 P(x_k)=y_k, \quad k=0,1,\dots,n
 \]
+\end{block}
+\end{frame}
 
+\begin{frame}{Теорем 1: Lagrange-ын олон гишүүнт (үргэлжлэл)}
+\footnotesize
+\begin{block}{Lagrange-ын хэлбэр}
 Энэ олон гишүүнт дараах хэлбэртэй:
 \[
 P(x)=y_0L_0(x)+y_1L_1(x)+\dots+y_nL_n(x)
